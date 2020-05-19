@@ -22,12 +22,12 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+    <origin xyz="0 0 0.010" rpy="0 0 0"/>
   </joint>
 
   <link name="base_link">
     <visual>
-      <origin xyz="-0.0 0 0.0525" rpy="0 0 -1.5707"/>
+      <origin xyz="0 0 0.0525" rpy="0 0 -1.5707"/>
       <geometry>
         <mesh filename="package://robot_description/meshes/stl/robot_base.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -35,7 +35,7 @@
     </visual>
 
     <collision>
-      <origin xyz="-0.0 0 0.11" rpy="0 0 0"/>
+      <origin xyz="0 0 0.11" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.11" radius="0.1"/>
       </geometry>
@@ -175,14 +175,6 @@
   </joint>
 
   <link name="base_scan">
-    <!-- <visual>
-      <origin xyz="0 0 0.0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://robot_description/meshes/stl/robot_lidar.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="dark"/>
-    </visual> -->
-
     <collision>
       <origin xyz="0.0 0 0.05" rpy="0 0 0"/>
       <geometry>
@@ -199,15 +191,17 @@
     </inertial>
   </link>
 
+
+
   <joint name="camera_left_joint" type="fixed">
-    <origin xyz="0.1 -0.02 0.12" rpy="0 0 0"/>
+    <origin xyz="0.1 0.02 0.12" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_left_link"/>
   </joint>
 
   <link name="camera_left_link">
     <collision>
-      <origin xyz="0.005 -0.02 0.013" rpy="0 0 0"/>
+      <origin xyz="0.005 0.02 0.013" rpy="0 0 0"/>
       <geometry>
         <box size="0.015 0.030 0.027"/>
       </geometry>
@@ -219,6 +213,7 @@
     <parent link="camera_left_link"/>
     <child link="camera_left_rgb_frame"/>
   </joint>
+
   <link name="camera_left_rgb_frame"/>
 
   <joint name="camera_left_rgb_optical_joint" type="fixed">
@@ -226,35 +221,33 @@
     <parent link="camera_left_rgb_frame"/>
     <child link="camera_left_rgb_optical_frame"/>
   </joint>
+
   <link name="camera_left_rgb_optical_frame"/>
 
 
 
 
-
-
-
-
-    <joint name="camera_right_joint" type="fixed">
-    <origin xyz="0.1 0.02 0.12" rpy="0 0 0"/>
+  <joint name="camera_right_joint" type="fixed">
+    <origin xyz="0.1 -0.02 0.12" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_right_link"/>
   </joint>
 
   <link name="camera_right_link">
     <collision>
-      <origin xyz="0.005 0.02 0.013" rpy="0 0 0"/>
+      <origin xyz="0.005 -0.02 0.013" rpy="0 0 0"/>
       <geometry>
         <box size="0.015 0.030 0.027"/>
       </geometry>
     </collision>
   </link>
 
-    <joint name="camera_right_rgb_joint" type="fixed">
-    <origin xyz="0.003 0.02 0.009" rpy="0 0 0"/>
+  <joint name="camera_right_rgb_joint" type="fixed">
+    <origin xyz="0.003 -0.02 0.009" rpy="0 0 0"/>
     <parent link="camera_right_link"/>
     <child link="camera_right_rgb_frame"/>
   </joint>
+
   <link name="camera_right_rgb_frame"/>
 
   <joint name="camera_right_rgb_optical_joint" type="fixed">
@@ -262,61 +255,44 @@
     <parent link="camera_right_rgb_frame"/>
     <child link="camera_right_rgb_optical_frame"/>
   </joint>
+
   <link name="camera_right_rgb_optical_frame"/>
 
 
 
-
-    <joint name="camera_rgb_joint" type="fixed">
-      <origin xyz="${cam_px} ${kinect_cam_py} ${cam_pz}" rpy="${cam_or} ${cam_op} ${cam_oy}"/>
-      <parent link="${parent}"/>
-      <child link="camera_rgb_frame" />
-    </joint>
-    <link name="camera_rgb_frame"/>
-
-    <joint name="camera_rgb_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-      <parent link="camera_rgb_frame" />
-      <child link="camera_rgb_optical_frame" />
-    </joint>
-    <link name="camera_rgb_optical_frame"/>
-
-    <joint name="camera_joint" type="fixed">
-      <origin xyz="-0.031 ${-kinect_cam_py} -0.016" rpy="0 0 0"/>
-      <parent link="camera_rgb_frame"/>
-      <child link="camera_link"/>
-    </joint>  
-      <link name="camera_link">
-<!--       <visual>
-       <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}"/>
-        <geometry>
-         <mesh filename="package://turtlebot_description/meshes/sensors/kinect.dae"/>
-        </geometry>
-      </visual> -->
-      <collision>
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0.07271 0.27794 0.073"/>
-        </geometry>
-      </collision>
-    </link>
-
-    <!-- The fixed joints & links below are usually published by static_transformers launched by the OpenNi launch 
-         files. However, for Gazebo simulation we need them, so we add them here.
-         (Hence, don't publish them additionally!) -->
-  <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="0 ${2 * -kinect_cam_py} 0" rpy="0 0 0" />
-    <parent link="camera_rgb_frame" />
-    <child link="camera_depth_frame" />
+  
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.064 -0.065 0.094" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
   </joint>
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.012 0.132 0.020"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py + r200_cam_depth_offset} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+
   <link name="camera_depth_frame"/>
 
   <joint name="camera_depth_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-    <parent link="camera_depth_frame" />
-    <child link="camera_depth_optical_frame" />
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_depth_optical_frame"/>
   </joint>
   <link name="camera_depth_optical_frame"/>
+
+
+
 
 
   

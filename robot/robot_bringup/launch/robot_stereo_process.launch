@@ -7,7 +7,6 @@
     	<remap from="/left/camera_info" to="/camera_left/camera_info"/>
     	<remap from="/right/image_raw" to="/camera_right/image_raw"/>
     	<remap from="/right/camera_info" to="/camera_right/camera_info"/>
-    	<param name="min_disparity" value="-30" />
     	<param name="approximate_sync" value="True" />
     	<param name="queue_size" value="10" />
 	</node>

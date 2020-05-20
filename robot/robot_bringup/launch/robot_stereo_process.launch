@@ -1,5 +1,5 @@
 <launch>
-
+	<include file="$(find robot_gazebo)/launch/robot_house.launch"/>
 	<include file="$(find robot_bringup)/launch/robot_remote.launch"/>
   
 	<node pkg="stereo_image_proc" type="stereo_image_proc" name="" respawn="true">
@@ -11,10 +11,18 @@
     	<param name="queue_size" value="10" />
 	</node>
 
-	<node pkg="image_view" type="stereo_view" name="" respawn="true" output="screen">
+<!-- 	<node pkg="image_view" type="stereo_view" name="" respawn="true" output="screen">
 		<remap from="stereo" to="/"/>
 		<remap from="image" to="image_rect"/>
-	</node>
+	</node> -->
+
+<!-- 	<node pkg="viso2_ros" type="stereo_odometer" name="" respawn="true">
+		<remap from="/left" to="/camera_left"/>
+    	<remap from="/left/camera_info" to="/camera_left/camera_info"/>
+    	<remap from="/right" to="/camera_right"/>
+    	<remap from="/right/camera_info" to="/camera_right/camera_info"/>
+    	<param name="approximate_sync" value="True" />
+	</node> -->
 
 	<node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find robot_slam)/rviz/robot_rtabmap_fake_stereo.rviz"/>

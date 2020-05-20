@@ -16,13 +16,15 @@
 		<remap from="image" to="image_rect"/>
 	</node> -->
 
-<!-- 	<node pkg="viso2_ros" type="stereo_odometer" name="" respawn="true">
-		<remap from="/left" to="/camera_left"/>
-    	<remap from="/left/camera_info" to="/camera_left/camera_info"/>
-    	<remap from="/right" to="/camera_right"/>
-    	<remap from="/right/camera_info" to="/camera_right/camera_info"/>
-    	<param name="approximate_sync" value="True" />
-	</node> -->
+  <node pkg="nodelet" type="nodelet" name="stereo_proc"  args="manager"/>
+
+  <node name="disparity_image_proc" pkg="nodelet" type="nodelet" args="load disparity_image_proc/depth_image stereo_proc" output="screen">
+    <!-- <remap from="/right/camera_info" to="/multisense_sl/camera/right/camera_info"/> -->
+    <!-- <remap from="/left/camera_info" to="/multisense_sl/camera/left/camera_info"/> -->
+    <!-- <remap from="/left/image_rect_color" to="/multisense_sl/camera/left/image_rect_color"/> -->
+    <!-- <remap from="/disparity" to="/multisense_sl/camera/disparity"/> -->
+    <remap from="/depth_image" to="/multisense_sl/camera/left/depth_image"/>    
+  </node>
 
 	<node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find robot_slam)/rviz/robot_rtabmap_fake_stereo.rviz"/>

@@ -29,7 +29,7 @@
     <visual>
       <origin xyz="0 0 0.0525" rpy="0 0 -1.5707"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/stl/robot_base.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://robot_description/meshes/dae/robot_base.dae"/>
       </geometry>
       <material name="light_black"/>
     </visual>
@@ -59,9 +59,9 @@
 
   <link name="wheel_left_link">
     <visual>
-      <origin xyz="0 0 0" rpy="-1.57 0  3.14"/>
+      <origin xyz="0 0 0.014" rpy="0 1.5707 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/stl/robot_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://robot_description/meshes/dae/robot_wheel.dae"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -91,9 +91,9 @@
 
   <link name="wheel_right_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.57 0 0"/>
+      <origin xyz="0 0 -0.014" rpy="0 -1.5707 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/stl/robot_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://robot_description/meshes/dae/robot_wheel.dae"/>
       </geometry>
       <material name="dark"/>
     </visual>

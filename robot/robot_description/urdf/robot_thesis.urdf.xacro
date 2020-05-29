@@ -3,20 +3,6 @@
   <xacro:include filename="$(find robot_description)/urdf/common_properties.xacro"/>
   <xacro:include filename="$(find robot_description)/urdf/robot_thesis.gazebo.xacro"/>
 
-
-  <xacro:property name="r200_cam_rgb_px" value="0.005"/>
-  <xacro:property name="r200_cam_rgb_py" value="0.018"/>
-  <xacro:property name="r200_cam_rgb_pz" value="0.013"/>
-  <xacro:property name="r200_cam_depth_offset" value="0.01"/>
-  <xacro:property name="parent" value="base_link"/>
-  <xacro:property name="M_PI" value="3.14"/>
-  <xacro:property name="kinect_cam_py" value="-0.0125"/>
-  <xacro:property name="cam_px" value="-0.087" />
-  <xacro:property name="cam_pz" value="0.2870" />
-  <xacro:property name="cam_or" value="0" />
-  <xacro:property name="cam_op" value="0" />
-  <xacro:property name="cam_oy" value="0" />
-
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
@@ -35,9 +21,9 @@
     </visual>
 
     <collision>
-      <origin xyz="0 0 0.11" rpy="0 0 0"/>
+      <origin xyz="0 0 0.095" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.11" radius="0.1"/>
+        <cylinder length="0.09" radius="0.1"/>
       </geometry>
     </collision>
 
@@ -171,12 +157,12 @@
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan"/>
-    <origin xyz="0.0 0 0.172" rpy="0 0 0"/>
+    <origin xyz="-0.02 0 0.172" rpy="0 0 0"/>
   </joint>
 
   <link name="base_scan">
     <collision>
-      <origin xyz="0.0 0 0.05" rpy="0 0 0"/>
+      <origin xyz="0.0 0 0.02" rpy="0 0 0"/>
       <geometry>
         <cylinder length="0.0315" radius="0.035"/>
       </geometry>
@@ -192,7 +178,7 @@
   </link>
   
   <joint name="camera_joint" type="fixed">
-    <origin xyz="0.064 -0.065 0.094" rpy="0 0 0"/>
+    <origin xyz="0.064 -0.065 0.16" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_link"/>
   </joint>
@@ -201,13 +187,13 @@
     <collision>
       <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
       <geometry>
-        <box size="0.012 0.132 0.020"/>
+        <box size="0.012 0.115 0.020"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py + r200_cam_depth_offset} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
+    <origin xyz="0.005 0.019 0.013" rpy="0 0 0"/>
     <parent link="camera_link"/>
     <child link="camera_depth_frame"/>
   </joint>
@@ -220,11 +206,5 @@
     <child link="camera_depth_optical_frame"/>
   </joint>
   <link name="camera_depth_optical_frame"/>
-
-
-
-
-
-  
 
 </robot>

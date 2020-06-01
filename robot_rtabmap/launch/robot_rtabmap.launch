@@ -21,7 +21,7 @@
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
 
   <!-- Navigation stuff (move_base) -->
-  <include unless="$(arg simulation)" file="$(find robot_bringup)/launch/robot_3d_process.launch">
+  <include unless="$(arg simulation)" file="$(find robot_bringup)/launch/include/3d_process.launch">
      <arg     if="$(arg sw_registered)" name="depth_registration" value="false"/>
      <arg unless="$(arg sw_registered)" name="depth_registration" value="true"/>
   </include>

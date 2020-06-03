@@ -1,13 +1,27 @@
 <launch>
   <arg name="multi_robot_name" default=""/>
   <arg name="set_lidar_frame_id" default="base_scan"/>
+  <arg name="camera_filter" default="pointcloud"/>
+  <arg name="camera_type" default="d415"/>
+  <arg name="camera_align_depth" default="true"/>
 
+  <!-- Rosserial -->
   <include file="$(find robot_bringup)/launch/robot_rosserial.launch">
     <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
   </include>
+
+  <!-- Lidar -->
   <include file="$(find robot_bringup)/launch/robot_lidar.launch">
     <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
   </include>
+
+  <!-- Camera -->
+  <include file="$(find robot_bringup)/launch/robot_rs_d415.launch">
+    <arg name="filters" value="$(arg camera_filter)"/>
+    <arg name="device_type" value="$(arg camera_type)"/>
+    <arg name="align_depth" value="$(arg camera_align_depth)"/>
+  </include>
+
 
   <node pkg="robot_bringup" type="robot_diagnostics" name="robot_diagnostics" output="screen"/>
 </launch>

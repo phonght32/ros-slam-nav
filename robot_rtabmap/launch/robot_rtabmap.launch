@@ -3,7 +3,7 @@
   <arg name="database_path"       default="rtabmap.db"/>
   <arg name="rgbd_odometry"       default="false"/>
   <arg name="localization"        default="false"/>
-  <arg name="simulation"          default="true"/>
+  <arg name="simulation"          default="false"/>
   <arg name="sw_registered"       default="false"/>
   <arg name="wait_for_transform"  default="0.2"/> 
 
@@ -11,7 +11,7 @@
   <arg name="rtabmap_frame"     default="base_footprint"/>
 
   <arg     if="$(arg localization)" name="args"  default=""/>
-  <arg unless="$(arg localization)" name="args"  default=""/>
+  <arg unless="$(arg localization)" name="args"  default="--delete_db_on_start"/>
 
   <!-- Input topics -->
   <arg     if="$(arg simulation)" name="rgb_topic"      default="/camera/color/image_raw"/>
@@ -20,6 +20,7 @@
   <arg unless="$(arg simulation)" name="depth_topic"    default="/camera/aligned_depth_to_color/image_raw"/>
   <arg name="camera_info_topic"                         default="/camera/color/camera_info"/>
   <arg name="scan_topic"                                default="/scan"/>
+  <arg name="odom_topic"                                default="/odom"/>
   
   
   <!-- Navigation stuff (move_base) -->
@@ -55,9 +56,10 @@
       <remap from="rgb/image"       to="$(arg rgb_topic)"/>
       <remap from="depth/image"     to="$(arg depth_topic)"/>
       <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
+      <remap from="odom"            to="$(arg odom_topic)"/>
 
       <!-- Fix odom covariance as in simulation the covariance in /odom topic is high (0.1 for linear and 0.05 for angular) -->
-      <param unless="$(arg rgbd_odometry)" name="odom_frame_id" value="$(arg odom_frame)"/>
+      <!-- <param unless="$(arg rgbd_odometry)" name="odom_frame_id" value="$(arg odom_frame)"/> -->
       <param unless="$(arg rgbd_odometry)" name="odom_tf_linear_variance" value="0.001"/>
       <param unless="$(arg rgbd_odometry)" name="odom_tf_angular_variance" value="0.001"/>
         

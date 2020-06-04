@@ -7,7 +7,7 @@
   <arg name="sw_registered"       default="false"/>
   <arg name="wait_for_transform"  default="0.2"/> 
 
-  <arg name="rtabmap_frame"     default="base_footprint"/>
+  <arg name="rtabmap_frame"     default="base_link"/>
 
   <arg     if="$(arg localization)" name="args"  default=""/>
   <arg unless="$(arg localization)" name="args"  default="--delete_db_on_start"/>

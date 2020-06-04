@@ -122,19 +122,64 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: false
+        base_scan:
+          Value: true
+        camera_depth_frame:
+          Value: false
+        camera_depth_optical_frame:
+          Value: false
+        camera_link:
+          Value: false
+        caster_back_link:
+          Value: false
+        caster_front_link:
+          Value: false
+        imu_link:
+          Value: false
+        map:
+          Value: false
+        odom:
+          Value: false
+        wheel_left_link:
+          Value: false
+        wheel_right_link:
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
       Tree:
-        {}
+        map:
+          odom:
+            base_footprint:
+              base_link:
+                base_scan:
+                  {}
+                camera_link:
+                  camera_depth_frame:
+                    camera_depth_optical_frame:
+                      {}
+                caster_back_link:
+                  {}
+                caster_front_link:
+                  {}
+                imu_link:
+                  {}
+                wheel_left_link:
+                  {}
+                wheel_right_link:
+                  {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -150,7 +195,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 2.63390172e-35
+      Max Intensity: 3.62767659e-35
       Min Color: 0; 0; 0
       Min Intensity: 0
       Name: LaserScan
@@ -295,7 +340,7 @@ Visualization Manager:
       Node filtering angle (degrees): 0
       Node filtering radius (m): 0
       Position Transformer: XYZ
-      Size (Pixels): 3
+      Size (Pixels): 5
       Size (m): 0.00999999978
       Style: Points
       Topic: /rtabmap/mapData
@@ -324,25 +369,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.31159163
+      Distance: 4.32199144
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.00901245978
-        Y: -0.126792997
-        Z: 0.0223136004
+        X: 1.03070438
+        Y: -0.0551555343
+        Z: 0.89489913
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.959799647
+      Pitch: 0.574800134
       Target Frame: base_footprint
       Value: Orbit (rviz)
-      Yaw: 3.36415005
+      Yaw: 3.20917487
     Saved: ~
 Window Geometry:
   Displays:
@@ -360,5 +405,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1503
-  X: 417
-  Y: 203
+  X: 339
+  Y: 277

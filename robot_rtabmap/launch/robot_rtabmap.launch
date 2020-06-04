@@ -7,7 +7,6 @@
   <arg name="sw_registered"       default="false"/>
   <arg name="wait_for_transform"  default="0.2"/> 
 
-  <arg name="odom_frame"        default="odom"/>
   <arg name="rtabmap_frame"     default="base_footprint"/>
 
   <arg     if="$(arg localization)" name="args"  default=""/>
@@ -59,7 +58,6 @@
       <remap from="odom"            to="$(arg odom_topic)"/>
 
       <!-- Fix odom covariance as in simulation the covariance in /odom topic is high (0.1 for linear and 0.05 for angular) -->
-      <!-- <param unless="$(arg rgbd_odometry)" name="odom_frame_id" value="$(arg odom_frame)"/> -->
       <param unless="$(arg rgbd_odometry)" name="odom_tf_linear_variance" value="0.001"/>
       <param unless="$(arg rgbd_odometry)" name="odom_tf_angular_variance" value="0.001"/>
         

@@ -19,9 +19,11 @@
 
   <!-- Camera -->
   <include if="$(arg camera_enable)" file="$(find robot_bringup)/launch/robot_rs_d415.launch">
-    <arg name="filters"     value="$(arg camera_filter)"/>
-    <arg name="device_type" value="$(arg camera_type)"/>
-    <arg name="align_depth" value="$(arg camera_align_depth)"/>
+    <arg name="filters"             value="$(arg camera_filter)"/>
+    <arg name="device_type"         value="$(arg camera_type)"/>
+    <arg name="align_depth"         value="$(arg camera_align_depth)"/>
+    <arg name="enable_infra1"       value="false"/>
+    <arg name="enable_infra2"       value="false"/>
   </include>
 
   <node pkg="robot_bringup" type="robot_diagnostics" name="robot_diagnostics" output="screen"/>

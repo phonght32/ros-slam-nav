@@ -1,6 +1,7 @@
 <launch>
 
   <arg name="database_path"       default="rtabmap.db"/>
+  <arg name="delete_db"           default="false"/>
   <arg name="rgbd_odometry"       default="false"/>
   <arg name="localization"        default="false"/>
   <arg name="simulation"          default="false"/>
@@ -9,8 +10,8 @@
 
   <arg name="rtabmap_frame"     default="base_link"/>
 
-  <arg     if="$(arg localization)" name="args"  default=""/>
-  <arg unless="$(arg localization)" name="args"  default="--delete_db_on_start"/>
+  <arg     if="$(arg delete_db)" name="args"  default="--delete_db_on_start"/>
+  <arg unless="$(arg delete_db)" name="args"  default=""/>
 
   <!-- Input topics -->
   <arg     if="$(arg simulation)" name="rgb_topic"      default="/camera/color/image_raw"/>

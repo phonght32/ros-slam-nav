@@ -18,7 +18,7 @@
   </include>
 
   <!-- Camera -->
-  <include if="$(arg camera_enable)" file="$(find robot_bringup)/launch/robot_rs_d415.launch">
+  <include if="$(arg camera_enable)" file="$(find robot_bringup)/launch/robot_realsense.launch">
     <arg name="filters"             value="$(arg camera_filter)"/>
     <arg name="device_type"         value="$(arg camera_type)"/>
     <arg name="align_depth"         value="$(arg camera_align_depth)"/>

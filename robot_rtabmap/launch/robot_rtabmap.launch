@@ -37,7 +37,6 @@
       <param name="frame_id"                         type="string"    value="$(arg rtabmap_frame)"/>
       <param name="wait_for_transform_duration"      type="double"    value="$(arg wait_for_transform)"/>
       <param name="map_always_update"                type="bool"      value="true"/>
-      <param name="approx_sync"                      type="bool"      value="false"/>
       <param name="subscribe_depth"                  type="bool"      value="true"/>
       <param name="subscribe_scan"                   type="bool"      value="true"/>
       <param name="queue_size"                                        value="200"/>

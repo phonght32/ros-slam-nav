@@ -22,12 +22,6 @@
   <arg name="scan_topic"                                default="/scan"/>
   <arg name="odom_topic"                                default="/odom"/>
   
-  
-  <!-- Navigation stuff (move_base) -->
-<!--   <include unless="$(arg simulation)" file="$(find robot_bringup)/launch/includes/3d_process.launch">
-     <arg     if="$(arg sw_registered)" name="depth_registration" value="false"/>
-     <arg unless="$(arg sw_registered)" name="depth_registration" value="true"/>
-  </include> -->
 
   <!-- Navigation parameters -->
   <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml"/>
@@ -43,11 +37,10 @@
       <param name="frame_id"                         type="string"    value="$(arg rtabmap_frame)"/>
       <param name="wait_for_transform_duration"      type="double"    value="$(arg wait_for_transform)"/>
       <param name="map_always_update"                type="bool"      value="true"/>
-      <!-- <param name="approx_sync"                      type="bool"      value="false"/> -->
+      <param name="approx_sync"                      type="bool"      value="false"/>
       <param name="subscribe_depth"                  type="bool"      value="true"/>
       <param name="subscribe_scan"                   type="bool"      value="true"/>
       <param name="queue_size"                                        value="200"/>
-
 
       <!-- When sending goals on /rtabmap/goal topic, use actionlib to communicate with move_base --> 
       <param name="use_action_for_goal"              type="bool" value="true"/>
@@ -61,7 +54,6 @@
       <remap from="odom"            to="$(arg odom_topic)"/>
 
       <!-- Fix odom covariance as in simulation the covariance in /odom topic is high (0.1 for linear and 0.05 for angular) -->
-      <!-- <param unless="$(arg rgbd_odometry)" name="odom_frame_id" value="odom"/> -->
       <param unless="$(arg rgbd_odometry)" name="odom_tf_linear_variance" value="0.001"/>
       <param unless="$(arg rgbd_odometry)" name="odom_tf_angular_variance" value="0.001"/>
         

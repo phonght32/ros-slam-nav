@@ -4,7 +4,6 @@
   <arg name="delete_db"           default="false"/>
   <arg name="localization"        default="false"/>
   <arg name="simulation"          default="false"/>
-  <arg name="sw_registered"       default="false"/>
   <arg name="wait_for_transform"  default="10"/> 
 
   <arg name="rtabmap_frame"     default="base_link"/>

@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /TF1/Frames1
         - /TF1/Tree1
         - /Global Map1/Costmap1
         - /Global Map1/Planner1
@@ -132,11 +131,11 @@ Visualization Manager:
         base_scan:
           Value: true
         camera_aligned_depth_to_color_frame:
-          Value: true
+          Value: false
         camera_color_frame:
-          Value: true
+          Value: false
         camera_color_optical_frame:
-          Value: true
+          Value: false
         camera_depth_frame:
           Value: false
         camera_depth_optical_frame:
@@ -150,7 +149,7 @@ Visualization Manager:
         imu_link:
           Value: false
         map:
-          Value: true
+          Value: false
         odom:
           Value: false
         wheel_left_link:
@@ -437,25 +436,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 22.3551197
+      Distance: 11.9374981
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.49652147
-        Y: -3.84259725
-        Z: -3.52103996
+        X: 2.8669529
+        Y: -1.66254783
+        Z: -0.971937776
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.16979671
+      Pitch: 1.04979682
       Target Frame: base_footprint
       Value: Orbit (rviz)
-      Yaw: 3.21413779
+      Yaw: 3.67415237
     Saved: ~
 Window Geometry:
   Displays:
@@ -473,7 +472,7 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1855
-  X: 522
-  Y: 347
+  X: 237
+  Y: 40
   camera_color:
     collapsed: false

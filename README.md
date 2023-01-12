@@ -3,7 +3,7 @@
 ### 1. Installation
 ```
 cd ~/catkin_ws/src/
-git clone https://github.com/thanhphong98/ros-slam-nav
+git clone https://github.com/phonght32/ros-slam-nav
 cd catkin_ws
 catkin_make
 ```

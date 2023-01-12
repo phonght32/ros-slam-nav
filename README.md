@@ -79,7 +79,7 @@ roslaunch robot_navigation robot_navigation.launch
 ```
 
 ### 5. Problem
-For any problem, please report to [Issues](https://github.com/thanhphong98/ros-slam-nav/issues) or contact email thanhphongho1998@gmail.com 
+For any problem, please report to [Issues](https://github.com/phonght32/ros-slam-nav/issues) or contact email thanhphongho1998@gmail.com 
  
  
  

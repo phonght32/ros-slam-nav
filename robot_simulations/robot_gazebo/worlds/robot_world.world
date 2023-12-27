@@ -1,14 +1,26 @@
-<sdf version='1.4'>
-  <world name='default'>
-    <!-- A global light source -->
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
     <include>
       <uri>model://sun</uri>
     </include>
 
-    <!-- A ground plane -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0.319654 -0.235002 9.29441 0 1.5138 0.009599</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
 
     <physics type="ode">
       <real_time_update_rate>1000.0</real_time_update_rate>
@@ -31,22 +43,12 @@
       </ode>
     </physics>
 
-    <!-- Load world -->
-    <include>
-      <uri>model://robot_world</uri>
-    </include>
+    <model name="robot_world">
+      <static>1</static>
+      <include>
+        <uri>model://robot_world</uri>
+      </include>
+    </model>
 
-    <scene>
-      <ambient>0.4 0.4 0.4 1</ambient>
-      <background>0.7 0.7 0.7 1</background>
-      <shadows>true</shadows>
-    </scene>
-
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>0.8 0.0 12.0 0 1.5708 0</pose>
-        <view_controller>orbit</view_controller>
-      </camera>
-    </gui>
   </world>
 </sdf>

@@ -1,7 +1,7 @@
 # ros-slam-nav
 
 ### 1. Installation
-Install prerequisites
+Install prerequisites:
 ```
 sudo apt-get install ros-kinetic-move-base*
 sudo apt-get install ros-kinetic-hector*
@@ -9,7 +9,7 @@ sudo apt-get install ros-kinetic-amcl
 sudo apt-get install ros-kinetic-map-server
 ```
 
-Build project
+Build project:
 
 ```
 cd ~/catkin_ws/src/
@@ -18,11 +18,18 @@ cd catkin_ws
 catkin_make
 ```
 
-Environment setup
+Environment setup:
 
 ```
 source $(path_to_ws)/devel/setup.bash
+```
+
+Choose supported robot model as below:
+
+```
 export robot_model=PIFBOT
+export robot_model=turtlebot3_burger
+export robot_model=turtlebot3_waffle
 ```
 
 ### 2. Simulation
@@ -98,9 +105,9 @@ roslaunch robot_navigation robot_navigation.launch
 
 ### 5. Create your own robot model
 
+Go into package "robot_description", add mesh and urdf files.
 
-
-### 6. Prbolem
+### 6. Problem
 
 For any problem, please report to [Issues](https://github.com/phonght32/ros-slam-nav/issues) or contact email thanhphongho1998@gmail.com 
 

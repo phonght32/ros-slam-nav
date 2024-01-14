@@ -2,6 +2,7 @@
   <arg name="x_pos" default="-2.0"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="z_pos" default="0.0"/>
+  <arg name="robot_model" default="$(env robot_model)"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find robot_gazebo)/worlds/robot_world.world"/>
@@ -12,7 +13,7 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_description)/urdf/robot_thesis.urdf.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_description)/urdf/$(arg robot_model)/robot_$(arg robot_model).urdf.xacro" />
 
-  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model robot_thesis -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model robot_$(arg robot_model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
 </launch>
